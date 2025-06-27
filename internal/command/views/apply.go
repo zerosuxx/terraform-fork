@@ -88,6 +88,9 @@ func (v *ApplyHuman) ResourceCount(stateOutPath string) {
 }
 
 func (v *ApplyHuman) Outputs(outputValues map[string]*states.OutputValue) {
+	if os.Getenv("TF_OUTPUT_HIDE_APPLY_OUTPUTS") != "" {
+		return
+	}
 	if len(outputValues) > 0 {
 		v.view.streams.Print(v.view.colorize.Color("[reset][bold][green]\nOutputs:\n\n"))
 		NewOutput(arguments.ViewHuman, v.view).Output("", outputValues)
