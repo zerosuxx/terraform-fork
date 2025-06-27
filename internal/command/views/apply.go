@@ -5,6 +5,7 @@ package views
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/hashicorp/terraform/internal/command/arguments"
 	"github.com/hashicorp/terraform/internal/command/format"
