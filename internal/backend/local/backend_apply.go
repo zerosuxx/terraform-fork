@@ -364,7 +364,7 @@ func (b *Local) opApply(
 							continue
 						case terraform.ValueFromEnvVar:
 							diags = diags.Append(&hcl.Diagnostic{
-								Severity: hcl.DiagWarning,
+								Severity: hcl.DiagError,
 								Summary:  "Ignoring variable when applying a saved plan",
 								Detail: fmt.Sprintf("The variable %s cannot be overriden when applying a saved plan file, "+
 									"because a saved plan includes the variable values that were set when it was created. "+
